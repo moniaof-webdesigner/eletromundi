@@ -280,6 +280,25 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
   .logo-img{height:85px}
   .ctas{flex-direction:column}
 }
+
+/* MOBILE PERFORMANCE — desativa animações e filtros caros */
+@media(max-width:900px){
+  .header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(13,13,13,.98)}
+  .orb{animation:none}
+  .hero-grid{display:none}
+  .glow-main,.glow-gold,.hero-shadow{display:none}
+  .hero-img{filter:none;animation:none}
+  .feat-orb{display:none}
+  .ticker-track{animation-duration:36s}
+}
+@media(max-width:640px){
+  .spark,.bolt{display:none}
+  .fc:hover{transform:none;box-shadow:none}
+  .btn-p:hover,.btn-s:hover,.btn-wh:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -686,8 +705,9 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
 <script>
 function wppMsg(p){window.open('https://wa.me/5527998976499?text='+encodeURIComponent('Olá! Vim pelo site da Eletromundi e tenho interesse em: '+p),'_blank')}
 
-// SPARKS
+// SPARKS — skip on mobile to avoid forced reflow
 (function(){
+  if(window.innerWidth<900)return;
   const c=document.getElementById('sparks');
   for(let i=0;i<18;i++){
     const s=document.createElement('div');s.className='spark';
