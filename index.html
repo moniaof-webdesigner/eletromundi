@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eletromundi — Materiais Elétricos</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@400;500;600&display=swap"></noscript>
 <style>
 :root{--o:#E8593C;--od:#c94428;--g:#F5A623;--black:#0d0d0d;--dark:#141414;--gray:#252525;--gray2:#1e1e1e;--w:#fff;--m:#888}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -653,8 +656,8 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
         <div class="fcol-t">Onde estamos</div>
         <div class="map-wrap">
           <iframe
-            src="https://maps.google.com/maps?q=Rua+Daniela+Perez,+300,+Barramares,+Vila+Velha,+ES,+29124-342&output=embed&z=16"
-            width="100%" height="200" style="border:0;display:block;" allowfullscreen loading="lazy"
+            data-src="https://maps.google.com/maps?q=Rua+Daniela+Perez,+300,+Barramares,+Vila+Velha,+ES,+29124-342&output=embed&z=16"
+            width="100%" height="200" style="border:0;display:block;" allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
             title="Eletromundi — R. Daniela Pérez, 300, Barramares, Vila Velha/ES"></iframe>
         </div>
@@ -724,6 +727,15 @@ const cio=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.stat-n').forEach(animateNum);cio.unobserve(e.target);}});
 },{threshold:.5});
 const hs=document.querySelector('.stats');if(hs)cio.observe(hs);
+
+// LAZY MAP — só carrega o iframe do Google Maps quando visível
+const mapIframe=document.querySelector('iframe[data-src]');
+if(mapIframe){
+  const mio=new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){mapIframe.src=mapIframe.dataset.src;mio.disconnect();}
+  },{rootMargin:'200px'});
+  mio.observe(mapIframe);
+}
 </script>
 </body>
 </html>
