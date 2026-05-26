@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eletromundi — Materiais Elétricos</title>
+<link rel="icon" type="image/svg+xml" href="favicon-eletromundi.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -16,7 +17,7 @@ body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--w);over
 .container{max-width:1160px;margin:0 auto;padding:0 24px}
 
 /* HEADER */
-.header{position:sticky;top:0;z-index:200;background:rgba(13,13,13,.96);backdrop-filter:blur(16px);border-bottom:2px solid var(--o)}
+.header{position:absolute;top:0;left:0;width:100%;z-index:999;background:transparent!important}
 .hdr{display:flex;align-items:center;justify-content:space-between;height:140px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-ic{width:auto;height:110px;max-height:140px;background:transparent;border-radius:0;display:block;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;color:#fff;flex-shrink:0}
@@ -34,7 +35,7 @@ nav a:hover::after{width:100%}
 .btn-wh:hover{background:#1db954;transform:translateY(-1px)}
 
 /* HERO */
-.hero{position:relative;overflow:hidden;padding:40px 0 60px;min-height:90vh;display:flex;align-items:center;background:var(--black)}
+.hero{position:relative;overflow:hidden;padding:160px 0 80px;min-height:100vh;display:flex;align-items:center;background:url('banner-hero.webp') center/cover no-repeat}
 .hero>.container{width:100%}
 .hero-orbs,.sparks,.hero-grid{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .hero-grid{background-image:linear-gradient(rgba(232,89,60,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,89,60,.04) 1px,transparent 1px);background-size:60px 60px}
@@ -48,15 +49,15 @@ nav a:hover::after{width:100%}
 .bolt{position:absolute;opacity:0;animation:boltF ease-in-out infinite}
 @keyframes boltF{0%,90%,100%{opacity:0}92%{opacity:.16}95%{opacity:.06}97%{opacity:.12}}
 
-.hero-in{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-in{display:grid;grid-template-columns:1fr;align-items:center;position:relative;z-index:2}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,89,60,.12);border:1px solid rgba(232,89,60,.35);border-radius:99px;padding:6px 16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--o);margin-bottom:24px}
 .badge-dot{width:8px;height:8px;border-radius:50%;background:var(--o);animation:pulse 1.6s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
 
-.hero-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(50px,6vw,84px);line-height:.93;text-transform:uppercase;letter-spacing:-2px;margin-bottom:24px}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:64px;line-height:.96;text-transform:uppercase;letter-spacing:-2px;margin-bottom:24px;max-width:860px}
 .hero-title em{font-style:italic;color:var(--o)}
 .hero-desc{font-size:17px;line-height:1.7;color:#bbb;margin-bottom:36px;max-width:460px}
-.ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;max-width:520px}
 .btn-p{background:var(--o);color:#fff;padding:16px 32px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 4px 28px rgba(232,89,60,.38);flex:1}
 .btn-p:hover{background:var(--od);transform:translateY(-2px);box-shadow:0 8px 36px rgba(232,89,60,.5)}
 .btn-s{background:transparent;color:#fff;padding:16px 32px;border-radius:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;text-decoration:none;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;border:2px solid rgba(255,255,255,.18);transition:border-color .2s,color .2s;flex:1}
@@ -283,7 +284,6 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
 
 /* MOBILE PERFORMANCE — desativa animações e filtros caros */
 @media(max-width:900px){
-  .header{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(13,13,13,.98)}
   .orb{animation:none}
   .hero-grid{display:none}
   .glow-main,.glow-gold,.hero-shadow{display:none}
@@ -306,7 +306,7 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
 <div class="gorbs"><div class="go go1"></div><div class="go go2"></div><div class="go go3"></div></div>
 
 <!-- HEADER -->
-<header>
+<header class="header">
   <div class="container hdr">
     <a class="logo" href="#">
       <img src="mundi.svg" alt="Eletromundi Materiais Elétricos" class="logo-img">
@@ -332,8 +332,7 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
   <div class="container">
     <div class="hero-in">
       <div>
-        <div class="hero-badge"><div class="badge-dot"></div> Promoções imperdíveis ativas agora</div>
-        <h1 class="hero-title">Tudo que sua<br>obra <em>precisa</em><br>está aqui</h1>
+        <h1 class="hero-title">Tudo que sua obra<br><em>precisa</em> está aqui</h1>
         <p class="hero-desc">Materiais elétricos de alta qualidade, marcas líderes do mercado e os melhores preços da região. Atendimento rápido pelo WhatsApp.</p>
         <div class="ctas">
           <a href="https://wa.me/5527998976499?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento" class="btn-p" target="_blank">
@@ -346,15 +345,6 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
           <div class="stat"><div class="stat-n" data-target="500" data-suffix="+">0</div><div class="stat-l">Produtos</div></div>
           <div class="stat"><div class="stat-n" data-target="10" data-suffix="+">0</div><div class="stat-l">Anos no mercado</div></div>
           <div class="stat"><div class="stat-n" data-target="5000" data-suffix="+">0</div><div class="stat-l">Clientes atendidos</div></div>
-        </div>
-      </div>
-      <div class="hero-vis">
-        <div class="hero-iw">
-          <div class="glow-main"></div>
-          <div class="glow-gold"></div>
-          <!-- PNG com fundo transparente -->
-          <img class="hero-img" src="furadeira.webp" alt="Furadeira Black+Decker" loading="eager" decoding="async" style="background:transparent">
-          <div class="hero-shadow"></div>
         </div>
       </div>
     </div>
