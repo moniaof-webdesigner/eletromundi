@@ -92,7 +92,7 @@ nav a:hover::after{width:100%}
 .prod-hdr{display:flex;flex-direction:column;gap:8px;margin-bottom:56px;position:relative;z-index:1}
 .prod-hdr-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .pp{display:inline-flex;align-items:center;gap:8px;background:var(--o);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:4px}
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:3px;position:relative;z-index:1}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,300px));gap:32px;justify-content:center;position:relative;z-index:1}
 
 .pc{background:var(--dark);position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
 .pc:hover{transform:translateY(-8px);box-shadow:0 32px 64px rgba(0,0,0,.5)}
@@ -101,8 +101,8 @@ nav a:hover::after{width:100%}
 .pc:hover::after{border-color:rgba(232,89,60,.3)}
 
 /* Product images: white bg shown as card bg, no crop */
-.piw{position:relative;background:#f5f5f5;height:300px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.piw img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.piw{position:relative;background:#f5f5f5;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.piw img{width:100%;height:100%;object-fit:cover;transition:transform .4s cubic-bezier(.22,1,.36,1)}
 .pc:hover .piw img{transform:scale(1.06)}
 .pi-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:70%;height:40px;background:radial-gradient(ellipse,rgba(232,89,60,.3) 0%,transparent 70%);filter:blur(10px);opacity:0;transition:opacity .3s}
 .pc:hover .pi-glow{opacity:1}
@@ -260,7 +260,7 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
   .rev-grid{grid-template-columns:1fr}
   .logo-img{height:85px}
   .ctas{flex-direction:column}
-  .prod-grid{gap:20px}
+  .prod-grid{gap:24px}
 }
 
 /* MOBILE PERFORMANCE */
@@ -346,22 +346,22 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
     </div>
     <div class="feat-grid reveal">
       <div class="fc">
-        <div class="fi"><svg viewBox="0 0 48 48"><path d="M24 4L29.5 15.2L42 17.1L33 25.9L35.1 38.4L24 32.6L12.9 38.4L15 25.9L6 17.1L18.5 15.2L24 4Z"/></svg></div>
+        <div class="fi"><svg viewBox="0 0 48 48"><path d="M24 4L8 10V22C8 31.4 15.1 40.2 24 44C32.9 40.2 40 31.4 40 22V10L24 4Z"/><path d="M16 23L21 28L32 18"/></svg></div>
         <div class="ft">Marcas líderes</div>
         <p class="fd">Menegotti, Black+Decker, Schneider, WEG, Tramontina e muito mais. Só o que há de melhor.</p>
       </div>
       <div class="fc">
-        <div class="fi"><svg viewBox="0 0 48 48"><path d="M40 16H28V4L8 28H20V40L40 16Z"/></svg></div>
+        <div class="fi"><svg viewBox="0 0 48 48"><rect x="2" y="16" width="28" height="18" rx="2"/><path d="M30 22H40L44 28V34H30V22Z"/><circle cx="10" cy="36" r="4"/><circle cx="38" cy="36" r="4"/><line x1="14" y1="34" x2="30" y2="34"/></svg></div>
         <div class="ft">Entrega rápida</div>
         <p class="fd">Pedido sai no mesmo dia. Sua obra não pode parar por falta de material.</p>
       </div>
       <div class="fc">
-        <div class="fi"><svg viewBox="0 0 48 48"><path d="M40 12H8C5.8 12 4 13.8 4 16V36C4 38.2 5.8 40 8 40H40C42.2 40 44 38.2 44 36V16C44 13.8 42.2 12 40 12Z"/><path d="M4 20H44"/><path d="M12 30H16M22 30H32"/></svg></div>
+        <div class="fi"><svg viewBox="0 0 48 48"><path d="M24 6C13.5 6 5 13.9 5 23.5C5 27.3 6.4 30.8 8.7 33.5L6 43L16 40.4C18.5 41.8 21.1 42.5 24 42.5C34.5 42.5 43 34.6 43 25C43 15.4 34.5 6 24 6Z"/><path d="M16 22L21 27L32 18"/></svg></div>
         <div class="ft">Atendimento no WhatsApp</div>
         <p class="fd">Orçamentos, dúvidas e pedidos direto no WhatsApp. Simples, rápido e sem complicação.</p>
       </div>
       <div class="fc">
-        <div class="fi"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20"/><path d="M24 14V24L30 30"/><path d="M16 10L10 16M32 10L38 16" stroke-width="1.8" opacity=".5"/></svg></div>
+        <div class="fi"><svg viewBox="0 0 48 48"><path d="M26 4H40C42.2 4 44 5.8 44 8V22L26 42L6 22V8C6 5.8 7.8 4 10 4H24"/><circle cx="34" cy="14" r="4"/><line x1="18" y1="28" x2="30" y2="16"/></svg></div>
         <div class="ft">Preço que cabe no bolso</div>
         <p class="fd">Promoções frequentes e preços competitivos. Você paga justo e leva o melhor produto.</p>
       </div>
@@ -390,7 +390,7 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
       <div class="pc reveal">
         <div class="piw">
           <span class="pbadge">Promoção</span>
-           width="320" height="300" loading="lazy">
+          <img src="card-1.webp" alt="Martelete Menegotti MMR800" width="320" height="300" loading="lazy">
           <div class="pi-glow"></div>
           <div class="pov"><a href="https://wa.me/5527998976499?text=Ol%C3%A1!%20Quero%20o%20Martelete%20Menegotti%20MMR800%20por%20R%24698%2C90" class="pob" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.137.564 4.14 1.548 5.872L.057 23.52l5.801-1.522A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 01-5.034-1.388l-.36-.214-3.742.981.999-3.648-.235-.374A9.787 9.787 0 012.182 12c0-5.419 4.399-9.818 9.818-9.818 5.419 0 9.818 4.399 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"/></svg>Quero este produto</a></div>
         </div>
@@ -408,7 +408,7 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
       <div class="pc reveal">
         <div class="piw">
           <span class="pbadge hot">Top vendas</span>
-           width="320" height="300" loading="lazy">
+          <img src="card-2.webp" alt="Furadeira Menegotti MFI 20V" width="320" height="300" loading="lazy">
           <div class="pi-glow"></div>
           <div class="pov"><a href="https://wa.me/5527998976499?text=Ol%C3%A1!%20Quero%20a%20Furadeira%20Menegotti%20MFI%2020V%20por%20R%24689%2C00" class="pob" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.137.564 4.14 1.548 5.872L.057 23.52l5.801-1.522A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 01-5.034-1.388l-.36-.214-3.742.981.999-3.648-.235-.374A9.787 9.787 0 012.182 12c0-5.419 4.399-9.818 9.818-9.818 5.419 0 9.818 4.399 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"/></svg>Quero este produto</a></div>
         </div>
@@ -426,7 +426,7 @@ footer{background:#080808;border-top:2px solid var(--o);padding:52px 0 32px}
       <div class="pc reveal">
         <div class="piw">
           <span class="pbadge">Promoção</span>
-           width="320" height="300" loading="lazy">
+          <img src="card-3.webp" alt="Desempenadeira Menegotti CA-MDE" width="320" height="300" loading="lazy">
           <div class="pi-glow"></div>
           <div class="pov"><a href="https://wa.me/5527998976499?text=Ol%C3%A1!%20Quero%20a%20Desempenadeira%20Menegotti%201200W%20por%20R%24719%2C90" class="pob" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.137.564 4.14 1.548 5.872L.057 23.52l5.801-1.522A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 01-5.034-1.388l-.36-.214-3.742.981.999-3.648-.235-.374A9.787 9.787 0 012.182 12c0-5.419 4.399-9.818 9.818-9.818 5.419 0 9.818 4.399 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"/></svg>Quero este produto</a></div>
         </div>
